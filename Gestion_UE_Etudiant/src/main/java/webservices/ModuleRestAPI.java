@@ -12,7 +12,7 @@ public class ModuleRestAPI {
 
     static ModuleBusiness helper = new ModuleBusiness();
 
-    // GET /api/module/list : liste de tous les modules
+    //  liste de tous les modules
     @Path("/list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -22,8 +22,7 @@ public class ModuleRestAPI {
                 .build();
     }
 
-    // POST /api/module/add : ajouter un module
-    // Le JSON doit contenir uniteEnseignement.code
+    //  ajouter un module
     @Path("/add")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -42,7 +41,7 @@ public class ModuleRestAPI {
         return Response.status(400).entity("Erreur : UE introuvable").build();
     }
 
-    // GET /api/module/{matricule} : récupérer un module par matricule
+    //  récupérer un module par matricule
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{matricule}")
@@ -54,7 +53,7 @@ public class ModuleRestAPI {
         return Response.status(200).entity(m).build();
     }
 
-    // GET /api/module?type=PROFESSIONNEL : récupérer les modules par type
+    //  récupérer les modules par type
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/")
@@ -72,7 +71,7 @@ public class ModuleRestAPI {
         }
     }
 
-    // GET /api/module/ue/{code} : récupérer les modules d'une UE
+    //  récupérer les modules d'une UE
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/ue/{code}")
@@ -84,7 +83,7 @@ public class ModuleRestAPI {
                 .build();
     }
 
-    // PUT /api/module/update : mettre à jour un module
+    //  mettre à jour un module
     @Path("/update")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -99,7 +98,7 @@ public class ModuleRestAPI {
         return Response.status(404).entity("Erreur : module introuvable").build();
     }
 
-    // DELETE /api/module/delete/{matricule} : supprimer un module
+    //  supprimer un module
     @Path("/delete/{matricule}")
     @DELETE
     @Produces(MediaType.TEXT_PLAIN)
